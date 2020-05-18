@@ -79,5 +79,9 @@ UPDATE movies SET show_time = '20:45' WHERE title = 'Iron Man 3';
 
 -- Extension
 -- Research how to delete multiple entries from your table in a single command.
-DELETE FROM movies WHERE id <= 13; -- Deleting the movies I've seen
+-- DELETE FROM movies WHERE id <= 13; -- Deleting the movies I've seen on Disney+ already
+-- DELETE FROM movies WHERE title LIKE '%Iron%'; -- Deleting any movies with Iron in the title because I hate Iron Man
+-- DELETE FROM movies WHERE show_time LIKE '2%'; --Deleting any films that start after 8pm because I need to go to bed early
+
+
 SELECT * FROM movies;
