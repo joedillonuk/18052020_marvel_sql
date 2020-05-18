@@ -1,25 +1,24 @@
-DROP TABLE lighsabers;
+DROP TABLE lightsabers; -- was getting an error for a long time due to missing the "t" in lightsabers
 DROP TABLE characters;
 
-CREATE TABLE characters(
+CREATE TABLE characters (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255),
   darkside BOOLEAN,
   age INT
 );
 
-CREATE TABLE lightsabers(
+CREATE TABLE lightsabers (
   id SERIAL PRIMARY KEY,
-  hilt_metal VARCHAR(255) NOT NULL,
-  colour VARCHAR(255) NOT NULL,
-  character_id INT REFERENCES characters(id)
+  character_id INT REFERENCES characters(id),
+  hilt_metal VARCHAR(255),
+  colour VARCHAR(255)
 );
-
 
 -- SELECT * FROM lightsabers WHERE owner_name = 'Obi-Wan Kenobi';
 
 -- Select all from table
-SELECT * FROM characters;
+-- SELECT * FROM characters;
 
 INSERT INTO characters(name, darkside, age) VALUES ('Obi-Wan Kenobi', false, 27);
 INSERT INTO characters(name, darkside, age) VALUES ('Anakin Skywalker', false, 19);
@@ -28,7 +27,7 @@ INSERT INTO characters(name, darkside) VALUES ('Yoda', false);
 
 INSERT INTO lightsabers(colour, hilt_metal, character_id) VALUES ('green', 'palladium', 4);
 INSERT INTO lightsabers(colour, hilt_metal, character_id) VALUES ('red', 'gold', 3);
-INSERT INTO lightsabers(colour, holt_metal, character_id) VALUES ('blue', 'titanium', 4);
+INSERT INTO lightsabers(colour, hilt_metal, character_id) VALUES ('blue', 'titanium', 4);
 
 -- INSERT INTO characters(name, darkside, age) VALUES ('Luke Skywalker', false, 17);
 --
